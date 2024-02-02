@@ -1,16 +1,30 @@
-FROM althack/ros2:humble-dev 
+FROM althack/ros2:humble-cuda-gazebo-nvidia
+
+ENV NVIDIA_DRIVER_CAPABILITIES graphics,utility,compute,display
+
+# Install nvidia container toolkit
+RUN curl -fsSL https://nvidia.github.io/libnvidia-container/gpgkey | sudo gpg --dearmor -o /usr/share/keyrings/nvidia-container-toolkit-keyring.gpg \
+        && curl -s -L https://nvidia.github.io/libnvidia-container/stable/deb/nvidia-container-toolkit.list | \
+        sed 's#deb https://#deb [signed-by=/usr/share/keyrings/nvidia-container-toolkit-keyring.gpg] https://#g' | \
+        sudo tee /etc/apt/sources.list.d/nvidia-container-toolkit.list \
+        && \
+        sudo apt-get update
+
 
 # ** [Optional] Uncomment this section to install additional packages. **
-#
-# ENV DEBIAN_FRONTEND=noninteractive
-# RUN apt-get update \
-#    && apt-get -y install --no-install-recommends <your-package-list-here> \
-#    #
-#    # Clean up
-#    && apt-get autoremove -y \
-#    && apt-get clean -y \
-#    && rm -rf /var/lib/apt/lists/*
-# ENV DEBIAN_FRONTEND=dialog
+ENV DEBIAN_FRONTEND=noninteractive
+RUN apt update \
+        && apt install -y --no-install-recommends \
+        ~nros-humble-rqt* \
+        nvidia-container-toolkit \
+        lshw \
+        #         #
+        #         # Clean up
+        && sudo apt autoremove -y \
+        && sudo apt clean -y \
+        && rm -rf /var/lib/apt/lists/*
+ENV DEBIAN_FRONTEND=dialog
+
 
 # Set up auto-source of workspace for ros user
 ARG WORKSPACE

@@ -1,5 +1,6 @@
 // See https://aka.ms/vscode-remote/devcontainer.json for format details.
 {
+        "name": "Object Manipulation and Task Planning",
 	"dockerFile": "Dockerfile",
 	"build": {
 		"args": {
@@ -14,7 +15,9 @@
 		"--security-opt=apparmor:unconfined",
 		"--volume=/tmp/.X11-unix:/tmp/.X11-unix",
 		"--volume=/mnt/wslg:/mnt/wslg",
-		"--ipc=host"
+		"--ipc=host",
+                "--runtime=nvidia",
+                "--gpus=all"
 		// uncomment to use intel iGPU
 		// "--device=/dev/dri"
 	],
@@ -41,7 +44,8 @@
 				"streetsidesoftware.code-spell-checker",
 				"twxs.cmake",
 				"yzhang.markdown-all-in-one",
-				"zachflower.uncrustify"
+				"zachflower.uncrustify",
+                                "vsliveshare.vsliveshare"
 			]
 		}
 	}
