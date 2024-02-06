@@ -2,3 +2,6 @@ build/*
 install/*
 log/*
 site/*
+
+# Devcontainer sync
+.devcontainer/devcontainer.json
