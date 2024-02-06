@@ -1,9 +1,0 @@
-source;share/omtp_lecture1_2/hook/pythonpath.ps1
-source;share/omtp_lecture1_2/hook/pythonpath.dsv
-source;share/omtp_lecture1_2/hook/pythonpath.sh
-source;share/omtp_lecture1_2/hook/ament_prefix_path.ps1
-source;share/omtp_lecture1_2/hook/ament_prefix_path.dsv
-source;share/omtp_lecture1_2/hook/ament_prefix_path.sh
-source;../../build/omtp_lecture1_2/share/omtp_lecture1_2/hook/pythonpath_develop.ps1
-source;../../build/omtp_lecture1_2/share/omtp_lecture1_2/hook/pythonpath_develop.dsv
-source;../../build/omtp_lecture1_2/share/omtp_lecture1_2/hook/pythonpath_develop.sh

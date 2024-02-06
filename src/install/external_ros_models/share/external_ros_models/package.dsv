@@ -1,9 +1,0 @@
-source;share/external_ros_models/hook/pythonpath.ps1
-source;share/external_ros_models/hook/pythonpath.dsv
-source;share/external_ros_models/hook/pythonpath.sh
-source;share/external_ros_models/hook/ament_prefix_path.ps1
-source;share/external_ros_models/hook/ament_prefix_path.dsv
-source;share/external_ros_models/hook/ament_prefix_path.sh
-source;../../build/external_ros_models/share/external_ros_models/hook/pythonpath_develop.ps1
-source;../../build/external_ros_models/share/external_ros_models/hook/pythonpath_develop.dsv
-source;../../build/external_ros_models/share/external_ros_models/hook/pythonpath_develop.sh

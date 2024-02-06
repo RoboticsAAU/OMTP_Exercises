@@ -1,8 +1,7 @@
 from setuptools import find_packages, setup
-import os
-from glob import glob
+import glob
 
-package_name = 'omtp_lecture1_2'
+package_name = 'franka_description'
 
 setup(
     name=package_name,
@@ -12,11 +11,13 @@ setup(
         ('share/ament_index/resource_index/packages',
             ['resource/' + package_name]),
         ('share/' + package_name, ['package.xml']),
-        # Launch file location
-        (os.path.join('share', package_name, 'launch'), glob(os.path.join('launch', '*launch.[pxy][yma]*'))),
-        (f'share/{package_name}/urdf', glob('urdf/*', recursive=True)),
-        (os.path.join('share', package_name, 'rviz'), glob(os.path.join('rviz', '*.rviz'))),
+        # Robots:
+        (f'share/{package_name}/robots', glob.glob('robots/*', recursive=True)),
+        # Meshes
+        (f'share/{package_name}/meshes/collision', glob.glob('meshes/collision/*', recursive=True)),
+        (f'share/{package_name}/meshes/visual', glob.glob('meshes/visual/*', recursive=True)),
     ],
+    install_requires=['setuptools'],
     zip_safe=True,
     maintainer='ros',
     maintainer_email='victor.risager@hotmail.com',
