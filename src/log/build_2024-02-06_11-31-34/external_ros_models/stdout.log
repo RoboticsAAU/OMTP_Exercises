@@ -1,0 +1,30 @@
+running develop
+running egg_info
+creating external_ros_models.egg-info
+writing external_ros_models.egg-info/PKG-INFO
+writing dependency_links to external_ros_models.egg-info/dependency_links.txt
+writing entry points to external_ros_models.egg-info/entry_points.txt
+writing requirements to external_ros_models.egg-info/requires.txt
+writing top-level names to external_ros_models.egg-info/top_level.txt
+writing manifest file 'external_ros_models.egg-info/SOURCES.txt'
+reading manifest file 'external_ros_models.egg-info/SOURCES.txt'
+writing manifest file 'external_ros_models.egg-info/SOURCES.txt'
+running build_ext
+Creating /workspaces/OMTP_Exercises/src/install/external_ros_models/lib/python3.10/site-packages/external-ros-models.egg-link (link to .)
+
+Installed /workspaces/OMTP_Exercises/src/build/external_ros_models
+running install_data
+creating /workspaces/OMTP_Exercises/src/install/external_ros_models/share/ament_index
+creating /workspaces/OMTP_Exercises/src/install/external_ros_models/share/ament_index/resource_index
+creating /workspaces/OMTP_Exercises/src/install/external_ros_models/share/ament_index/resource_index/packages
+copying resource/external_ros_models -> /workspaces/OMTP_Exercises/src/install/external_ros_models/share/ament_index/resource_index/packages
+copying package.xml -> /workspaces/OMTP_Exercises/src/install/external_ros_models/share/external_ros_models
+creating /workspaces/OMTP_Exercises/src/install/external_ros_models/share/external_ros_models/urdf
+copying urdf/robot_pedestal/robot_pedestal.gazebo.xacro -> /workspaces/OMTP_Exercises/src/install/external_ros_models/share/external_ros_models/urdf
+copying urdf/robot_pedestal/robot_pedestal.urdf.xacro -> /workspaces/OMTP_Exercises/src/install/external_ros_models/share/external_ros_models/urdf
+copying urdf/bin/bin.urdf.xacro -> /workspaces/OMTP_Exercises/src/install/external_ros_models/share/external_ros_models/urdf
+copying urdf/bin/bin.gazebo.xacro -> /workspaces/OMTP_Exercises/src/install/external_ros_models/share/external_ros_models/urdf
+creating /workspaces/OMTP_Exercises/src/install/external_ros_models/share/external_ros_models/meshes
+copying meshes/bin/visual/bin.dae -> /workspaces/OMTP_Exercises/src/install/external_ros_models/share/external_ros_models/meshes
+copying meshes/bin/collision/bin_sides.dae -> /workspaces/OMTP_Exercises/src/install/external_ros_models/share/external_ros_models/meshes
+copying meshes/bin/collision/bin_bottom.dae -> /workspaces/OMTP_Exercises/src/install/external_ros_models/share/external_ros_models/meshes

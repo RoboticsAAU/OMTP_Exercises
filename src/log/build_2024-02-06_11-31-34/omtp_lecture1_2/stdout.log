@@ -1,0 +1,23 @@
+running develop
+running egg_info
+creating omtp_lecture1_2.egg-info
+writing omtp_lecture1_2.egg-info/PKG-INFO
+writing dependency_links to omtp_lecture1_2.egg-info/dependency_links.txt
+writing entry points to omtp_lecture1_2.egg-info/entry_points.txt
+writing top-level names to omtp_lecture1_2.egg-info/top_level.txt
+writing manifest file 'omtp_lecture1_2.egg-info/SOURCES.txt'
+reading manifest file 'omtp_lecture1_2.egg-info/SOURCES.txt'
+writing manifest file 'omtp_lecture1_2.egg-info/SOURCES.txt'
+running build_ext
+Creating /workspaces/OMTP_Exercises/src/install/omtp_lecture1_2/lib/python3.10/site-packages/omtp-lecture1-2.egg-link (link to .)
+
+Installed /workspaces/OMTP_Exercises/src/build/omtp_lecture1_2
+running install_data
+creating /workspaces/OMTP_Exercises/src/install/omtp_lecture1_2/share/ament_index
+creating /workspaces/OMTP_Exercises/src/install/omtp_lecture1_2/share/ament_index/resource_index
+creating /workspaces/OMTP_Exercises/src/install/omtp_lecture1_2/share/ament_index/resource_index/packages
+copying resource/omtp_lecture1_2 -> /workspaces/OMTP_Exercises/src/install/omtp_lecture1_2/share/ament_index/resource_index/packages
+copying package.xml -> /workspaces/OMTP_Exercises/src/install/omtp_lecture1_2/share/omtp_lecture1_2
+creating /workspaces/OMTP_Exercises/src/install/omtp_lecture1_2/share/omtp_lecture1_2/launch
+copying launch/visualize_omtp_factory_launch.xml -> /workspaces/OMTP_Exercises/src/install/omtp_lecture1_2/share/omtp_lecture1_2/launch
+copying launch/vizualize_omtp_factory.launch.py -> /workspaces/OMTP_Exercises/src/install/omtp_lecture1_2/share/omtp_lecture1_2/launch

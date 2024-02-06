@@ -1,0 +1,13 @@
+package.xml
+setup.cfg
+setup.py
+launch/visualize_omtp_factory_launch.xml
+launch/vizualize_omtp_factory.launch.py
+omtp_lecture1_2/__init__.py
+omtp_lecture1_2.egg-info/PKG-INFO
+omtp_lecture1_2.egg-info/SOURCES.txt
+omtp_lecture1_2.egg-info/dependency_links.txt
+omtp_lecture1_2.egg-info/entry_points.txt
+omtp_lecture1_2.egg-info/top_level.txt
+omtp_lecture1_2.egg-info/zip-safe
+resource/omtp_lecture1_2

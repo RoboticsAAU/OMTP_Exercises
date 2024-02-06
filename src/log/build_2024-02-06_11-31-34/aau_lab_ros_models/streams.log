@@ -1,0 +1,47 @@
+[0.849s] Invoking command in '/workspaces/OMTP_Exercises/src/build/aau_lab_ros_models': PYTHONPATH=/workspaces/OMTP_Exercises/src/build/aau_lab_ros_models/prefix_override:/workspaces/OMTP_Exercises/src/install/aau_lab_ros_models/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py develop --editable --build-directory /workspaces/OMTP_Exercises/src/build/aau_lab_ros_models/build --no-deps install_data
+[0.991s] running develop
+[0.991s] /usr/lib/python3/dist-packages/setuptools/command/easy_install.py:158: EasyInstallDeprecationWarning: easy_install command is deprecated. Use build and pip and other standards-based tools.
+[0.991s]   warnings.warn(
+[0.992s] /usr/lib/python3/dist-packages/setuptools/command/install.py:34: SetuptoolsDeprecationWarning: setup.py install is deprecated. Use build and pip and other standards-based tools.
+[0.992s]   warnings.warn(
+[1.070s] running egg_info
+[1.070s] creating aau_lab_ros_models.egg-info
+[1.070s] writing aau_lab_ros_models.egg-info/PKG-INFO
+[1.071s] writing dependency_links to aau_lab_ros_models.egg-info/dependency_links.txt
+[1.071s] writing entry points to aau_lab_ros_models.egg-info/entry_points.txt
+[1.071s] writing requirements to aau_lab_ros_models.egg-info/requires.txt
+[1.071s] writing top-level names to aau_lab_ros_models.egg-info/top_level.txt
+[1.071s] writing manifest file 'aau_lab_ros_models.egg-info/SOURCES.txt'
+[1.072s] reading manifest file 'aau_lab_ros_models.egg-info/SOURCES.txt'
+[1.072s] writing manifest file 'aau_lab_ros_models.egg-info/SOURCES.txt'
+[1.073s] running build_ext
+[1.073s] Creating /workspaces/OMTP_Exercises/src/install/aau_lab_ros_models/lib/python3.10/site-packages/aau-lab-ros-models.egg-link (link to .)
+[1.074s] 
+[1.074s] Installed /workspaces/OMTP_Exercises/src/build/aau_lab_ros_models
+[1.074s] running install_data
+[1.074s] creating /workspaces/OMTP_Exercises/src/install/aau_lab_ros_models/share/ament_index
+[1.074s] creating /workspaces/OMTP_Exercises/src/install/aau_lab_ros_models/share/ament_index/resource_index
+[1.075s] creating /workspaces/OMTP_Exercises/src/install/aau_lab_ros_models/share/ament_index/resource_index/packages
+[1.075s] copying resource/aau_lab_ros_models -> /workspaces/OMTP_Exercises/src/install/aau_lab_ros_models/share/ament_index/resource_index/packages
+[1.075s] copying package.xml -> /workspaces/OMTP_Exercises/src/install/aau_lab_ros_models/share/aau_lab_ros_models
+[1.075s] creating /workspaces/OMTP_Exercises/src/install/aau_lab_ros_models/share/aau_lab_ros_models/urdf
+[1.075s] copying urdf/festo_t_module/festo_t_module.urdf.xacro -> /workspaces/OMTP_Exercises/src/install/aau_lab_ros_models/share/aau_lab_ros_models/urdf
+[1.075s] copying urdf/festo_bypass_module/festo_bypass_module.urdf.xacro -> /workspaces/OMTP_Exercises/src/install/aau_lab_ros_models/share/aau_lab_ros_models/urdf
+[1.075s] copying urdf/eu_pallet/eu_pallet.urdf.xacro -> /workspaces/OMTP_Exercises/src/install/aau_lab_ros_models/share/aau_lab_ros_models/urdf
+[1.075s] copying urdf/festo_robot_module/festo_robot_module.urdf.xacro -> /workspaces/OMTP_Exercises/src/install/aau_lab_ros_models/share/aau_lab_ros_models/urdf
+[1.075s] copying urdf/festo_straight_module/festo_straight_module.urdf.xacro -> /workspaces/OMTP_Exercises/src/install/aau_lab_ros_models/share/aau_lab_ros_models/urdf
+[1.075s] copying urdf/pool_cue/pool_cue.urdf.xacro -> /workspaces/OMTP_Exercises/src/install/aau_lab_ros_models/share/aau_lab_ros_models/urdf
+[1.075s] copying urdf/fib14/fib14.urdf.xacro -> /workspaces/OMTP_Exercises/src/install/aau_lab_ros_models/share/aau_lab_ros_models/urdf
+[1.075s] copying urdf/wood_box/wood_box.urdf.xacro -> /workspaces/OMTP_Exercises/src/install/aau_lab_ros_models/share/aau_lab_ros_models/urdf
+[1.075s] creating /workspaces/OMTP_Exercises/src/install/aau_lab_ros_models/share/aau_lab_ros_models/meshes
+[1.076s] copying meshes/festo_t_module/festo_t_module.dae -> /workspaces/OMTP_Exercises/src/install/aau_lab_ros_models/share/aau_lab_ros_models/meshes
+[1.081s] copying meshes/festo_bypass_module/festo_bypass_module.dae -> /workspaces/OMTP_Exercises/src/install/aau_lab_ros_models/share/aau_lab_ros_models/meshes
+[1.090s] copying meshes/eu_pallet/eu_pallet.dae -> /workspaces/OMTP_Exercises/src/install/aau_lab_ros_models/share/aau_lab_ros_models/meshes
+[1.090s] copying meshes/festo_robot_module/festo_robot_module.dae -> /workspaces/OMTP_Exercises/src/install/aau_lab_ros_models/share/aau_lab_ros_models/meshes
+[1.111s] copying meshes/festo_straight_module/festo_straight_module.dae -> /workspaces/OMTP_Exercises/src/install/aau_lab_ros_models/share/aau_lab_ros_models/meshes
+[1.116s] copying meshes/pool_cue/pool_cue.dae -> /workspaces/OMTP_Exercises/src/install/aau_lab_ros_models/share/aau_lab_ros_models/meshes
+[1.116s] copying meshes/fib14/fib14.dae -> /workspaces/OMTP_Exercises/src/install/aau_lab_ros_models/share/aau_lab_ros_models/meshes
+[1.117s] copying meshes/wood_box/wood_box_3.dae -> /workspaces/OMTP_Exercises/src/install/aau_lab_ros_models/share/aau_lab_ros_models/meshes
+[1.117s] copying meshes/wood_box/wood_box_2.dae -> /workspaces/OMTP_Exercises/src/install/aau_lab_ros_models/share/aau_lab_ros_models/meshes
+[1.117s] copying meshes/wood_box/wood_box.dae -> /workspaces/OMTP_Exercises/src/install/aau_lab_ros_models/share/aau_lab_ros_models/meshes
+[1.174s] Invoked command in '/workspaces/OMTP_Exercises/src/build/aau_lab_ros_models' returned '0': PYTHONPATH=/workspaces/OMTP_Exercises/src/build/aau_lab_ros_models/prefix_override:/workspaces/OMTP_Exercises/src/install/aau_lab_ros_models/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py develop --editable --build-directory /workspaces/OMTP_Exercises/src/build/aau_lab_ros_models/build --no-deps install_data
