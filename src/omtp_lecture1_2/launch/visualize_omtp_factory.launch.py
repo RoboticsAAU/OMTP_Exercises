@@ -1,52 +1,50 @@
 from launch import LaunchDescription
 from launch_ros.actions import Node
 from ament_index_python.packages import get_package_share_directory
-from launch.substitutions import LaunchConfiguration
-from launch.actions import DeclareLaunchArgument
+from launch.actions import IncludeLaunchDescription
+from launch.launch_description_sources import PythonLaunchDescriptionSource
 
-import xacro
 import os
 
 def generate_launch_description():
 
+    # Package information
     package_name = 'omtp_lecture1_2'
-    # If the launch file is told to use sim time
-    use_sim_time = LaunchConfiguration('use_sim_time')
-
-    # Process the URDF file
     pkg_path = os.path.join(get_package_share_directory(package_name))
-    xacro_file = os.path.join(pkg_path, 'urdf', 'omtp_factory.xacro')
-    robot_description_config = xacro.process_file(xacro_file)
-
  
-#     rviz config path in share directory.
+    # Define the path to the rviz file
     rviz_config_path = os.path.join(pkg_path, 'rviz', 'omtp.rviz')
 
-    # Define parameters.
-    params = {'robot_description': robot_description_config.toxml(), 'use_sim_time':use_sim_time}
-
-    node_robot_state_publisher = Node(
-        package='robot_state_publisher',
-        executable='robot_state_publisher',
-        output='screen',
-        parameters=[params],
+    # Publish robot states
+    robot_state_publisher = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource([os.path.join(
+            get_package_share_directory(package_name), 'launch', 'rsp.launch.py'
+        )]),
+        launch_arguments={'use_sim_time': 'true'}.items()
     )
-    return LaunchDescription([
-        # Publish robot states
-        
-        DeclareLaunchArgument(
-            'use_sim_time',
-            default_value='true',
-            description='Use sim time'
-        ),
-        node_robot_state_publisher,
 
-        # Launch rviz
-        Node(
+    # Gazebo world file:
+    # gazebo_world = os.path.join(pkg_path, 'worlds', 'empty.world')
+
+    # Include launch description for gazebo from gazebo_ros package
+    gazebo = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource([os.path.join(
+            get_package_share_directory('gazebo_ros'), 'launch', 'gazebo.launch.py' 
+        )]),
+        launch_arguments={'use_sim_time': 'true'}.items()
+    )
+
+    # Launch rviz
+    rviz = Node(
             package='rviz2',
             executable='rviz2',
             name='rviz',
             output='screen',
             arguments=['-d', rviz_config_path]
-        ),
+        )
+
+    return LaunchDescription([
+        robot_state_publisher,
+        gazebo,
+        rviz,
     ])
