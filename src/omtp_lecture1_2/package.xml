@@ -14,9 +14,9 @@
 
 
         <!-- Resources -->
-        <depend>joint_state_publisher</depend>
+        <!-- <depend>joint_state_publisher</depend> -->
         <depend>robot_state_publisher</depend>
-        <depend>rviz</depend>
+        <depend>rviz2</depend>
         <depend>franka_description</depend>
         <depend>xacro</depend>
         <depend>moveit_ros_control_interface</depend>
