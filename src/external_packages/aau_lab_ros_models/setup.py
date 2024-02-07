@@ -26,6 +26,7 @@ setup(
         (f'share/{package_name}/meshes/eu_pallet', glob.glob('meshes/eu_pallet/*', recursive=True)),
         (f'share/{package_name}/meshes/festo_bypass_module', glob.glob('meshes/festo_bypass_module/*', recursive=True)),
         (f'share/{package_name}/meshes/festo_robot_module', glob.glob('meshes/festo_robot_module/*', recursive=True)),
+        (f'share/{package_name}/meshes/festo_straight_module', glob.glob('meshes/festo_straight_module/*', recursive=True)),
         (f'share/{package_name}/meshes/festo_t_module', glob.glob('meshes/festo_t_module/*', recursive=True)),
         (f'share/{package_name}/meshes/fib14', glob.glob('meshes/fib14/*', recursive=True)),
         (f'share/{package_name}/meshes/pool_cue', glob.glob('meshes/pool_cue/*', recursive=True)),
