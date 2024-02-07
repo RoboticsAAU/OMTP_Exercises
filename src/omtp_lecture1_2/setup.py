@@ -16,6 +16,7 @@ setup(
         (os.path.join('share', package_name, 'launch'), glob(os.path.join('launch', '*launch.[pxy][yma]*'))),
         (f'share/{package_name}/urdf', glob('urdf/*', recursive=True)),
         (os.path.join('share', package_name, 'rviz'), glob(os.path.join('rviz', '*.rviz'))),
+        (f'share/{package_name}/worlds', glob('worlds/*', recursive=True)),
     ],
     zip_safe=True,
     maintainer='ros',
