@@ -46,7 +46,8 @@
 				"yzhang.markdown-all-in-one",
 				"zachflower.uncrustify",
 				"vsliveshare.vsliveshare",
-				"ms-python.python"
+				"ms-python.python",
+				"ms-vscode.cmake-tools"
 			]
 		}
 	}
