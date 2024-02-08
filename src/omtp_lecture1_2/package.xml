@@ -14,7 +14,8 @@
 
 
         <!-- Resources -->
-        <!-- <depend>joint_state_publisher</depend> -->
+        <depend>joint_state_publisher_gui</depend>
+        <depend>joint_state_publisher</depend>
         <depend>robot_state_publisher</depend>
         <depend>rviz2</depend>
         <depend>franka_description</depend>
