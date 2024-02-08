@@ -26,13 +26,13 @@
 
 
         <!-- ==================================================== -->
-        <!-- Panda robot -->
+        <!-- Panda 1 robot -->
         <!-- ==================================================== -->
         <!-- Franka parameters -->
         <xacro:arg name="arm_id_1" default="panda1"/>
         <xacro:arg name="use_cylinder_collision_model" default="true"/>
         <xacro:arg name="use_gazebo_sim" default="true"/>
-        <xacro:arg name="parent" default="robot1_pedestal_link"/>
+        <xacro:arg name="panda1_parent" default="robot1_pedestal_link"/>
 
         <!-- Load panda arm and hand -->
         <xacro:include filename="$(find franka_description)/robots/panda_arm.xacro" />
@@ -45,7 +45,7 @@
         </xacro:if>
 
         <!-- Panda 1 -->
-        <xacro:panda_arm xyz="0.05 0 0.95" rpy="0 0 0" connected_to="$(arg parent)" arm_id="$(arg arm_id_1)" safety_distance="0.03" use_cylinder_collision_model="$(arg use_cylinder_collision_model)"/>
+        <xacro:panda_arm xyz="0.05 0 0.95" rpy="0 0 0" connected_to="$(arg panda1_parent)" arm_id="$(arg arm_id_1)" safety_distance="0.03" use_cylinder_collision_model="$(arg use_cylinder_collision_model)"/>
         <xacro:hand ns="$(arg arm_id_1)" rpy="0 0 ${-pi/4}" connected_to="$(arg arm_id_1)_link8" safety_distance="0.03" use_cylinder_collision_model="$(arg use_cylinder_collision_model)"/>
 
         <xacro:arm_gazebo arm_id="$(arg arm_id_1)"/>
@@ -61,7 +61,48 @@
         <!-- ==================================================== -->
         <xacro:include filename="$(find external_ros_models)/urdf/robot_pedestal/robot_pedestal.urdf.xacro"/>
         <xacro:robot_pedestal_urdf pedestal_prefix="robot1_" pedestal_parent="world_interface" pedestal_height="0.95">
-                <origin xyz="0.5 1.8 0.0" rpy="0 0 0"/>
+                <origin xyz="-1.6 3.0 0.0" rpy="0 0 0"/>
+        </xacro:robot_pedestal_urdf>
+
+
+        <!-- ==================================================== -->
+        <!-- Panda 2 robot -->
+        <!-- ==================================================== -->
+
+        <!-- Franka parameters -->
+        <xacro:arg name="arm_id_2" default="panda2"/>
+        <xacro:arg name="use_cylinder_collision_model" default="true"/>
+        <xacro:arg name="use_gazebo_sim" default="true"/>
+        <xacro:arg name="panda2_parent" default="robot2_pedestal_link"/>
+
+        <!-- Load panda arm and hand -->
+        <xacro:include filename="$(find franka_description)/robots/panda_arm.xacro" />
+        <xacro:include filename="$(find franka_description)/robots/hand.xacro"/>
+
+        <!-- Load gazebo control -->
+        <xacro:if value="$(arg use_gazebo_sim)">
+                <xacro:include filename="$(find franka_description)/robots/panda.gazebo.xacro"/>
+                <xacro:include filename="$(find franka_description)/robots/panda.control.xacro"/>
+        </xacro:if>
+
+        <!-- Panda 2 -->
+        <xacro:panda_arm xyz="0.05 0 0.95" rpy="0 0 0" connected_to="$(arg panda2_parent)" arm_id="$(arg arm_id_2)" safety_distance="0.03" use_cylinder_collision_model="$(arg use_cylinder_collision_model)"/>
+        <xacro:hand ns="$(arg arm_id_2)" rpy="0 0 ${-pi/4}" connected_to="$(arg arm_id_2)_link8" safety_distance="0.03" use_cylinder_collision_model="$(arg use_cylinder_collision_model)"/>
+
+        <xacro:arm_gazebo arm_id="$(arg arm_id_2)"/>
+        <xacro:arm_control arm_id="$(arg arm_id_2)"/>
+
+        <gazebo>
+                <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so"/>
+        </gazebo>
+
+
+        <!-- ==================================================== -->
+        <!-- Robot 2 pedestal -->
+        <!-- ==================================================== -->
+        <xacro:include filename="$(find external_ros_models)/urdf/robot_pedestal/robot_pedestal.urdf.xacro"/>
+        <xacro:robot_pedestal_urdf pedestal_prefix="robot2_" pedestal_parent="world_interface" pedestal_height="0.95">
+                <origin xyz="-1.6 6.6 0.0" rpy="0 0 0"/>
         </xacro:robot_pedestal_urdf>
 
 
@@ -69,7 +110,6 @@
         <!-- ==================================================== -->
         <!-- Festo Modules -->
         <!-- ==================================================== -->
-
 
         <!-- Festo interface. Makes it convenient to move the whole Festo setup according to the world world interface-->
 
@@ -124,7 +164,7 @@
 
 
         ====================================================
-                <!-- Bins -->
+                                                                                                                                                                                                                <!-- Bins -->
         <!-- ==================================================== -->
         <!-- <xacro:include filename="$(find external_ros_models)/urdf/bin/bin.urdf.xacro"/>
         <xacro:bin_urdf prefix="bin_1"/>
