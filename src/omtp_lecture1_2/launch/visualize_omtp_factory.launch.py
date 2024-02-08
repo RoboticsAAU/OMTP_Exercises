@@ -23,6 +23,13 @@ def generate_launch_description():
         launch_arguments={'use_sim_time': 'true'}.items()
     )
 
+    joint_state_publisher = Node(
+        package='joint_state_publisher',
+        executable='joint_state_publisher',
+        name='joint_state_publisher',
+        output='screen',
+    )
+
     # Gazebo world file:
     # gazebo_world = os.path.join(pkg_path, 'worlds', 'empty.world')
 
@@ -45,6 +52,7 @@ def generate_launch_description():
 
     return LaunchDescription([
         robot_state_publisher,
+        joint_state_publisher,
         gazebo,
         rviz,
     ])
