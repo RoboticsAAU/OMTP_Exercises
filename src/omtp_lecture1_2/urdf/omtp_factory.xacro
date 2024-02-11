@@ -71,8 +71,6 @@
 
         <!-- Franka parameters -->
         <xacro:arg name="arm_id_2" default="panda2"/>
-        <xacro:arg name="use_cylinder_collision_model" default="true"/>
-        <xacro:arg name="use_gazebo_sim" default="true"/>
         <xacro:arg name="panda2_parent" default="robot2_pedestal_link"/>
 
         <!-- Load panda arm and hand -->
@@ -163,8 +161,8 @@
         </xacro:festo_module_urdf>
 
 
-        ====================================================
-                                                                                                                                                                                                                <!-- Bins -->
+        <!-- ==================================================== -->
+        <!-- Bins -->
         <!-- ==================================================== -->
         <!-- <xacro:include filename="$(find external_ros_models)/urdf/bin/bin.urdf.xacro"/>
         <xacro:bin_urdf prefix="bin_1"/>

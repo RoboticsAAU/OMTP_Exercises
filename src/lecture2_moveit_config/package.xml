@@ -47,9 +47,6 @@
 
 
   <export>
-    <build_type>ament_cmake</build_type>
-    <gazebo_ros gazebo_model_path="/workspaces/OMTP_Exercises/install/aau_lab_ros_models/share/"/>
-    <gazebo_ros gazebo_model_path="/workspaces/OMTP_Exercises/install/external_ros_models/share/"/>
-    <gazebo_ros gazebo_model_path="/workspaces/OMTP_Exercises/install/franka_description/share/"/>
+      <build_type>ament_cmake</build_type>
   </export>
 </package>
