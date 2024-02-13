@@ -9,6 +9,6 @@
     <xacro:include filename="omtp_factory.ros2_control.xacro" />
 
 
-    <xacro:omtp_factory_ros2_control name="FakeSystem" initial_positions_file="$(arg initial_positions_file)"/>
+    <xacro:omtp_factory_ros2_control name="GazeboSystem" initial_positions_file="$(arg initial_positions_file)"/>
 
 </robot>
