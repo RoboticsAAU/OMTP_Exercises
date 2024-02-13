@@ -24,3 +24,5 @@ The launch script `gazebo.launch.py` is located in the package mentioned above, 
 - `spawn_controllers` spawns the controllers for the manipulator. 
 - `gazebo` spawns gazebo with the necessary files.
 - `spawn_entity` , parses the robot_description into the .sdf format internally, and thus integrates it into the gazebo world. 
+
+It is important to note that the gazebo_ros2_control plugin must be placed as a hardware plugin into `omtp_factory.ros2_control.xacro` and the name in `omtp_factory.urdf.xacro` must be changed to GazeboSystem. This is crucial to tell moveit that the robot is simulated in gazebo. 
