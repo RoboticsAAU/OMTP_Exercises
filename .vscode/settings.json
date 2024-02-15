@@ -57,7 +57,9 @@
         "rosdistro",
         "rosidl",
         "RTPS",
+        "rviz",
         "uncrustify",
+        "URDF",
         "Wextra",
         "Wpedantic",
         "xmllint"
