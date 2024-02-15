@@ -157,4 +157,6 @@
     <disable_collisions link1="panda1_link5" link2="panda1_link7" reason="Default"/>
     <disable_collisions link1="panda1_link6" link2="panda1_link7" reason="Adjacent"/>
     <disable_collisions link1="panda1_link7" link2="panda1_link8" reason="Adjacent"/>
+    <disable_collisions link1="panda1_rightfinger" link2="panda1_hand" reason="Never"/>
+    <disable_collisions link1="panda1_leftfinger" link2="panda1_hand" reason="Never"/>
 </robot>
