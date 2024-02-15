@@ -21,8 +21,8 @@
         <!-- ==================================================== -->
         <!-- Fib14 building -->
         <!-- ==================================================== -->
-        <xacro:include filename="$(find aau_lab_ros_models)/urdf/fib14/fib14.urdf.xacro"/>
-        <xacro:fib14_urdf fib14_parent="world_interface"/>
+        <!-- <xacro:include filename="$(find aau_lab_ros_models)/urdf/fib14/fib14.urdf.xacro"/>
+        <xacro:fib14_urdf fib14_parent="world_interface"/> -->
 
 
         <!-- ==================================================== -->
@@ -127,40 +127,40 @@
         </xacro:festo_module_urdf>
 
         <!-- Module 2 -->
-        <xacro:include filename="$(find aau_lab_ros_models)/urdf/festo_straight_module/festo_straight_module.urdf.xacro"/>
+        <!-- <xacro:include filename="$(find aau_lab_ros_models)/urdf/festo_straight_module/festo_straight_module.urdf.xacro"/>
         <xacro:festo_module_urdf module_prefix="module2_" festo_module_parent="festo_interface">
                 <origin xyz="1.0 1.2 0.0" rpy="0 0 0"/>
-        </xacro:festo_module_urdf>
+        </xacro:festo_module_urdf> -->
 
         <!-- T Module -->
-        <xacro:include filename="$(find aau_lab_ros_models)/urdf/festo_t_module/festo_t_module.urdf.xacro"/>
+        <!-- <xacro:include filename="$(find aau_lab_ros_models)/urdf/festo_t_module/festo_t_module.urdf.xacro"/>
         <xacro:festo_module_urdf module_prefix="moduleT_" festo_module_parent="festo_interface">
                 <origin xyz="1.0 2.4 0.0" rpy="0 0 0"/>
-        </xacro:festo_module_urdf>
+        </xacro:festo_module_urdf> -->
 
         <!-- Module 3 -->
-        <xacro:include filename="$(find aau_lab_ros_models)/urdf/festo_straight_module/festo_straight_module.urdf.xacro"/>
+        <!-- <xacro:include filename="$(find aau_lab_ros_models)/urdf/festo_straight_module/festo_straight_module.urdf.xacro"/>
         <xacro:festo_module_urdf module_prefix="module3_" festo_module_parent="festo_interface">
                 <origin xyz="0.0 2.4 0.0" rpy="0 0 ${pi/2}"/>
-        </xacro:festo_module_urdf>
+        </xacro:festo_module_urdf> -->
 
         <!-- Module 4 -->
-        <xacro:include filename="$(find aau_lab_ros_models)/urdf/festo_straight_module/festo_straight_module.urdf.xacro"/>
+        <!-- <xacro:include filename="$(find aau_lab_ros_models)/urdf/festo_straight_module/festo_straight_module.urdf.xacro"/>
         <xacro:festo_module_urdf module_prefix="module4_" festo_module_parent="festo_interface">
                 <origin xyz="-1.2 2.4 0.0" rpy="0 0 ${pi/2}"/>
-        </xacro:festo_module_urdf>
+        </xacro:festo_module_urdf> -->
 
         <!-- Module 5 -->
-        <xacro:include filename="$(find aau_lab_ros_models)/urdf/festo_straight_module/festo_straight_module.urdf.xacro"/>
+        <!-- <xacro:include filename="$(find aau_lab_ros_models)/urdf/festo_straight_module/festo_straight_module.urdf.xacro"/>
         <xacro:festo_module_urdf module_prefix="module5_" festo_module_parent="festo_interface">
                 <origin xyz="1.0 3.6 0.0" rpy="0 0 0"/>
-        </xacro:festo_module_urdf>
+        </xacro:festo_module_urdf> -->
 
         <!-- Module 6 -->
-        <xacro:include filename="$(find aau_lab_ros_models)/urdf/festo_straight_module/festo_straight_module.urdf.xacro"/>
+        <!-- <xacro:include filename="$(find aau_lab_ros_models)/urdf/festo_straight_module/festo_straight_module.urdf.xacro"/>
         <xacro:festo_module_urdf module_prefix="module6_" festo_module_parent="festo_interface">
                 <origin xyz="1.0 4.8 0.0" rpy="0 0 0"/>
-        </xacro:festo_module_urdf>
+        </xacro:festo_module_urdf> -->
 
 
         <!-- ==================================================== -->
