@@ -37,7 +37,6 @@
         "**/log": true
     },
     "cSpell.words": [
-        "RTPS",
         "athackst",
         "autopep",
         "cmake",
@@ -47,7 +46,9 @@
         "deque",
         "devcontainer",
         "ints",
+        "moveit",
         "noqa",
+        "omtp",
         "pytest",
         "rclcpp",
         "rclpy",
