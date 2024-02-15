@@ -10,6 +10,7 @@ find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(moveit_core REQUIRED)
 find_package(moveit_ros_planning_interface REQUIRED)
+find_package(moveit_visual_tools REQUIRED)
 
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
@@ -30,7 +31,7 @@ install(DIRECTORY launch src descriptions
 
 
 add_executable(move_panda src/move_panda.cpp)
-ament_target_dependencies(move_panda rclcpp moveit_ros_planning_interface)
+ament_target_dependencies(move_panda rclcpp moveit_ros_planning_interface moveit_visual_tools)
 
 install(TARGETS
   move_panda

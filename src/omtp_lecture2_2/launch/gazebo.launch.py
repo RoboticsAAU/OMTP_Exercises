@@ -39,10 +39,20 @@ def generate_launch_description():
         )
 
         # Robot State Publisher
-        robot_state_publisher = IncludeLaunchDescription(
-                PythonLaunchDescriptionSource([os.path.join(moveit_config_path, 'launch','rsp.launch.py')]),
-                launch_arguments={'use_sim_time': LaunchConfiguration('use_sim_time')}.items()
+        # robot_state_publisher = IncludeLaunchDescription(
+        #         PythonLaunchDescriptionSource([os.path.join(moveit_config_path, 'launch','rsp.launch.py')]),
+        #         launch_arguments={'use_sim_time': LaunchConfiguration("use_sim_time")}.items()
+        # )
+
+        robot_state_publisher = Node(
+                package="robot_state_publisher",
+                executable="robot_state_publisher",
+                respawn=True,
+                output="screen",
+                parameters=[moveit_config.robot_description,{'use_sim_time':LaunchConfiguration('use_sim_time')}],
         )
+
+
 
 
         # Movegroup node with use_sim_time to ensure that it is synced with simulation time

@@ -30,7 +30,7 @@
         <!-- ==================================================== -->
         <!-- Franka parameters -->
         <xacro:arg name="arm_id_1" default="panda1"/>
-        <xacro:arg name="use_cylinder_collision_model" default="true"/>
+        <xacro:arg name="use_cylinder_collision_model" default="false"/>
         <xacro:arg name="use_gazebo_sim" default="true"/>
         <xacro:arg name="panda1_parent" default="robot1_pedestal_link"/>
 
@@ -46,7 +46,7 @@
 
         <!-- Panda 1 -->
         <xacro:panda_arm xyz="0.05 0 0.95" rpy="0 0 0" connected_to="$(arg panda1_parent)" arm_id="$(arg arm_id_1)" safety_distance="0.03" use_cylinder_collision_model="$(arg use_cylinder_collision_model)"/>
-        <xacro:hand ns="$(arg arm_id_1)" rpy="0 0 ${-pi/4}" connected_to="$(arg arm_id_1)_link8" safety_distance="0.03" use_cylinder_collision_model="$(arg use_cylinder_collision_model)"/>
+        <xacro:hand ns="$(arg arm_id_1)" rpy="0 0 -${pi/4}" connected_to="$(arg arm_id_1)_link8" safety_distance="0.01" use_cylinder_collision_model="$(arg use_cylinder_collision_model)"/>
 
         <xacro:arm_gazebo arm_id="$(arg arm_id_1)"/>
         <xacro:arm_control arm_id="$(arg arm_id_1)"/>
