@@ -23,8 +23,8 @@ if(BUILD_TESTING)
   ament_lint_auto_find_test_dependencies()
 endif()
 
-# Add the launch directory to the install folder
-install(DIRECTORY launch src
+# Add the launch, src and descriptions directory to the install folder
+install(DIRECTORY launch src descriptions
   DESTINATION share/${PROJECT_NAME}
 )
 
