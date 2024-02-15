@@ -26,3 +26,15 @@ The launch script `gazebo.launch.py` is located in the package mentioned above, 
 - `spawn_entity` , parses the robot_description into the .sdf format internally, and thus integrates it into the gazebo world. 
 
 It is important to note that the gazebo_ros2_control plugin must be placed as a hardware plugin into `omtp_factory.ros2_control.xacro` and the name in `omtp_factory.urdf.xacro` must be changed to GazeboSystem. This is crucial to tell moveit that the robot is simulated in gazebo. 
+
+# Spawn Box
+Spawning the green box is done using the launch script
+```bash
+ros2 launch omtp_lecture2_2 spawn_box.launch.py
+```
+which spawns the box in the world reference frame. I tried to make it spawn in the `module1_festo_module` reference frame, but due to the automatic parsing of the `.urdf` file to `.sdf`, then static frames are disregarded, and it is therefore not visible in gazebo. The box is however spawned on top of the festo module using the following coordinates in the `box.sdf` file: 
+```xml
+<pose>-1.08 2.55 1.0 0 0 0</pose>
+```
+
+which puts it directly on the conveyor belt. 
