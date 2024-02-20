@@ -27,7 +27,7 @@ The launch script `gazebo.launch.py` is located in the package mentioned above, 
 
 It is important to note that the gazebo_ros2_control plugin must be placed as a hardware plugin into `omtp_factory.ros2_control.xacro` and the name in `omtp_factory.urdf.xacro` must be changed to GazeboSystem. This is crucial to tell moveit that the robot is simulated in gazebo. 
 
-# Spawn Box
+## Spawn Box
 Spawning the green box is done using the launch script
 ```bash
 ros2 launch omtp_lecture2_2 spawn_box.launch.py
@@ -38,3 +38,13 @@ which spawns the box in the world reference frame. I tried to make it spawn in t
 ```
 
 which puts it directly on the conveyor belt. 
+
+
+## pick and place 
+Using the C++ moveit2 api, it is possible to control the movegroup by setting positions and targets. It is possible to request the move_group_interface to plan trajectories between the targets for both move_groups. (`panda_arm` and `hand`) 
+Positions are defined with the standard `geometry_msgs::msg::Pose`, that is, it needs a translational position and a position defined in quaternions. 
+
+The pick and place algorithm is in the `omtp_lecture2_2/src/move_demo.cpp`. To run the pick and place with a box, use the `omtp_lecture2_2/launch/pick_and_place.launch` file. This launches the full gazebo simulation, the move demo node, and spawns a box in the environment.
+
+
+
