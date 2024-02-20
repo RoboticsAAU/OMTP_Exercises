@@ -38,8 +38,8 @@ int main(int argc, char ** argv)
 
 
   // Get the joint model groups
-  const moveit::core::JointModelGroup * joint_model_group =
-    move_group.getCurrentState()->getJointModelGroup(PLANNING_GROUP);
+  // const moveit::core::JointModelGroup * joint_model_group =
+  //   move_group.getCurrentState()->getJointModelGroup(PLANNING_GROUP);
   const moveit::core::JointModelGroup * joint_model_group_hand =
     move_group.getCurrentState()->getJointModelGroup(HAND_GROUP);
 
