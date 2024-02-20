@@ -45,7 +45,7 @@ int main(int argc, char ** argv)
 
   while (rclcpp::ok()) {
     // Set the gripper joint values
-    std::vector<double> gripper_joints = {0.035, 0.035};
+    std::vector<double> gripper_joints = {0.040, 0.040};
     bool success;
     // Get the joint names
     std::vector<std::string> joint_names_hand = joint_model_group_hand->getVariableNames();
