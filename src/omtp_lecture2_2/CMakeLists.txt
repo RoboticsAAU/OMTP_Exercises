@@ -33,8 +33,12 @@ install(DIRECTORY launch src descriptions
 add_executable(move_panda src/move_panda.cpp)
 ament_target_dependencies(move_panda rclcpp moveit_ros_planning_interface moveit_visual_tools)
 
+add_executable(move_demo src/move_demo.cpp)
+ament_target_dependencies(move_demo rclcpp moveit_ros_planning_interface moveit_visual_tools)
+
 install(TARGETS
   move_panda
+  move_demo
   DESTINATION lib/${PROJECT_NAME}
 )
 
