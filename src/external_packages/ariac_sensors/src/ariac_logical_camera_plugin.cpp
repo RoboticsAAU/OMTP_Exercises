@@ -22,7 +22,7 @@ class AriacLogicalCameraPluginPrivate
 public:
   /// Node for ros communication
   gazebo_ros::Node::SharedPtr ros_node_;
-  
+
   /// Publish for logical camera message
   rclcpp::Publisher<ariac_msgs::msg::AdvancedLogicalCameraImage>::SharedPtr advanced_pub_;
   rclcpp::Publisher<ariac_msgs::msg::BasicLogicalCameraImage>::SharedPtr basic_pub_;
@@ -30,13 +30,13 @@ public:
   /// LogicalCameraImage message modified each update
   ariac_msgs::msg::AdvancedLogicalCameraImage::SharedPtr advanced_image_msg_;
   ariac_msgs::msg::BasicLogicalCameraImage::SharedPtr basic_image_msg_;
-  
+
   /// AriacLogicalCameraPlugin sensor this plugin is attached to
   gazebo::sensors::LogicalCameraSensorPtr sensor_;
-  
+
   /// Event triggered when sensor updates
   gazebo::event::ConnectionPtr sensor_update_event_;
-  
+
   /// List of models that the logical camera will publish
   std::vector<std::string> parts_to_publish_;
   std::vector<std::string> colors_;
@@ -69,8 +69,8 @@ void AriacLogicalCameraPlugin::Load(gazebo::sensors::SensorPtr _sensor, sdf::Ele
   impl_->sensor_ = std::dynamic_pointer_cast<gazebo::sensors::LogicalCameraSensor>(_sensor);
   impl_->ros_node_ = gazebo_ros::Node::Get(_sdf);
 
-   // Set list of models to publish
-  impl_->parts_to_publish_ = {"pump", "battery", "regulator", "sensor"};
+  // Set list of models to publish
+  impl_->parts_to_publish_ = {"pump", "battery", "regulator", "sensor", "box"};
   impl_->colors_ = {"red", "green", "blue", "orange", "purple"};
 
   impl_->part_types_ = {
@@ -78,6 +78,7 @@ void AriacLogicalCameraPlugin::Load(gazebo::sensors::SensorPtr _sensor, sdf::Ele
     {"pump", ariac_msgs::msg::Part::PUMP},
     {"regulator", ariac_msgs::msg::Part::REGULATOR},
     {"sensor", ariac_msgs::msg::Part::SENSOR},
+    {"box", ariac_msgs::msg::Part::BATTERY}
   };
 
   impl_->part_colors_ = {
@@ -92,20 +93,23 @@ void AriacLogicalCameraPlugin::Load(gazebo::sensors::SensorPtr _sensor, sdf::Ele
   impl_->sensor_type_ = _sdf->Get<std::string>("sensor_type");
 
   if (impl_->sensor_type_ == "basic") {
-    impl_->basic_pub_ = impl_->ros_node_->create_publisher<ariac_msgs::msg::BasicLogicalCameraImage>(
+    impl_->basic_pub_ =
+      impl_->ros_node_->create_publisher<ariac_msgs::msg::BasicLogicalCameraImage>(
       "ariac/sensors/" + impl_->camera_name_ + "/image", rclcpp::SensorDataQoS());
 
     impl_->basic_image_msg_ = std::make_shared<ariac_msgs::msg::BasicLogicalCameraImage>();
 
   } else if (impl_->sensor_type_ == "advanced") {
-    impl_->advanced_pub_ = impl_->ros_node_->create_publisher<ariac_msgs::msg::AdvancedLogicalCameraImage>(
+    impl_->advanced_pub_ =
+      impl_->ros_node_->create_publisher<ariac_msgs::msg::AdvancedLogicalCameraImage>(
       "ariac/sensors/" + impl_->camera_name_ + "/image", rclcpp::SensorDataQoS());
 
     impl_->advanced_image_msg_ = std::make_shared<ariac_msgs::msg::AdvancedLogicalCameraImage>();
   }
 
   // Subscribe to sensor health topic
-  impl_->sensor_health_sub_ = impl_->ros_node_->create_subscription<ariac_msgs::msg::Sensors>("/ariac/sensor_health", 10, 
+  impl_->sensor_health_sub_ = impl_->ros_node_->create_subscription<ariac_msgs::msg::Sensors>(
+    "/ariac/sensor_health", 10,
     std::bind(&AriacLogicalCameraPlugin::SensorHealthCallback, this, std::placeholders::_1));
 
   impl_->sensor_update_event_ = impl_->sensor_->ConnectUpdated(
@@ -114,9 +118,9 @@ void AriacLogicalCameraPlugin::Load(gazebo::sensors::SensorPtr _sensor, sdf::Ele
 
 void AriacLogicalCameraPluginPrivate::OnUpdate()
 {
-  if (!sensor_health_.logical_camera) {
-    return;
-  }
+  // if (!sensor_health_.logical_camera) {
+  //   return;
+  // }
 
   const auto & image = this->sensor_->Image();
 
@@ -132,29 +136,31 @@ void AriacLogicalCameraPluginPrivate::OnUpdate()
     std::string name = lc_model.name();
 
     if (name.find("kit_tray") != std::string::npos) {
-        ariac_msgs::msg::KitTrayPose kit_tray;
+      ariac_msgs::msg::KitTrayPose kit_tray;
 
-        std::string id_string = name.substr(9, 2);
-        kit_tray.id = std::stoi(id_string);
-        kit_tray.pose = gazebo_ros::Convert<geometry_msgs::msg::Pose>(gazebo::msgs::ConvertIgn(lc_model.pose()));
+      std::string id_string = name.substr(9, 2);
+      kit_tray.id = std::stoi(id_string);
+      kit_tray.pose =
+        gazebo_ros::Convert<geometry_msgs::msg::Pose>(gazebo::msgs::ConvertIgn(lc_model.pose()));
 
-        trays.push_back(kit_tray);
-        continue;
+      trays.push_back(kit_tray);
+      continue;
     }
 
-    for(std::string part_type : parts_to_publish_){
+    for (std::string part_type : parts_to_publish_) {
       if (name.find(part_type) != std::string::npos) {
         ariac_msgs::msg::PartPose part;
 
         part.part.type = part_types_[part_type];
-        
-        for(std::string color : colors_){
+
+        for (std::string color : colors_) {
           if (name.find(color) != std::string::npos) {
             part.part.color = part_colors_[color];
           }
         }
 
-        part.pose = gazebo_ros::Convert<geometry_msgs::msg::Pose>(gazebo::msgs::ConvertIgn(lc_model.pose()));
+        part.pose =
+          gazebo_ros::Convert<geometry_msgs::msg::Pose>(gazebo::msgs::ConvertIgn(lc_model.pose()));
 
         parts.push_back(part);
 
@@ -169,11 +175,11 @@ void AriacLogicalCameraPluginPrivate::OnUpdate()
     basic_image_msg_->part_poses.clear();
     basic_image_msg_->tray_poses.clear();
 
-    for (ariac_msgs::msg::PartPose &part : parts) {
+    for (ariac_msgs::msg::PartPose & part : parts) {
       basic_image_msg_->part_poses.push_back(part.pose);
     }
 
-    for (ariac_msgs::msg::KitTrayPose &tray : trays) {
+    for (ariac_msgs::msg::KitTrayPose & tray : trays) {
       basic_image_msg_->tray_poses.push_back(tray.pose);
     }
 
@@ -189,7 +195,8 @@ void AriacLogicalCameraPluginPrivate::OnUpdate()
   }
 }
 
-void AriacLogicalCameraPlugin::SensorHealthCallback(const ariac_msgs::msg::Sensors::SharedPtr msg){
+void AriacLogicalCameraPlugin::SensorHealthCallback(const ariac_msgs::msg::Sensors::SharedPtr msg)
+{
   impl_->sensor_health_ = *msg;
 }
 
