@@ -242,19 +242,24 @@ int main(int argc, char * argv[])
   //   RCLCPP_ERROR(logger, "Did not find IK solution");
   // }
 
+  move_group_interface.setStartStateToCurrentState();
+
+  tf2::Quaternion orientation;
+  orientation.setRPY(-3.14, 0, 0);
+  orientation.normalize();
 
   // Set the target pose
-  auto const target_pose = [] {
-      geometry_msgs::msg::Pose target_pose;
-      target_pose.position.x = 0.28;
-      target_pose.position.y = -0.2;
-      target_pose.position.z = 0.5;
-      // target_pose.orientation.x = 0.0;
-      // target_pose.orientation.y = 0.0;
-      // target_pose.orientation.z = 0.0;
-      target_pose.orientation.w = 1.0;
-      return target_pose;
-    }();
+  geometry_msgs::msg::Pose target_pose;
+  target_pose.position.x = 0.623;
+  target_pose.position.y = -0.1;
+  target_pose.position.z = 0.281;
+  // target_pose.orientation.x = 0.0;
+  // target_pose.orientation.y = 0.0;
+  // target_pose.orientation.z = 0.0;
+  target_pose.orientation.x = orientation.x();
+  target_pose.orientation.y = orientation.y();
+  target_pose.orientation.z = orientation.z();
+  target_pose.orientation.w = orientation.w();
 
   // Set the target pose of the move group
   move_group_interface.setPoseTarget(target_pose);
