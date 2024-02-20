@@ -17,6 +17,8 @@ RUN apt update \
         && apt install -y --no-install-recommends \
         ~nros-humble-rqt* \
         ros-humble-moveit* \
+        ros-humble-cv-vision-opencv* \
+        ros-humble-cv-bridge* \
         nvidia-container-toolkit \
         lshw \
         # Clean up
