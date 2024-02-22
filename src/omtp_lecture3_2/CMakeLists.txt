@@ -8,6 +8,11 @@ endif()
 # find dependencies
 find_package(ament_cmake REQUIRED)
 find_package(ariac_sensors REQUIRED)
+find_package(rclcpp REQUIRED)
+find_package(moveit_core REQUIRED)
+find_package(moveit_ros_planning_interface REQUIRED)
+find_package(moveit_visual_tools REQUIRED)
+
 # uncomment the following section in order to fill in
 # further dependencies manually.
 # find_package(<dependency> REQUIRED)
@@ -29,5 +34,15 @@ install(DIRECTORY
   launch
   DESTINATION share/${PROJECT_NAME}
 )
+
+add_executable(logic_pick_and_place src/logic_pick_and_place.cpp)
+ament_target_dependencies(logic_pick_and_place rclcpp moveit_ros_planning_interface moveit_visual_tools)
+
+
+install(TARGETS
+  logic_pick_and_place
+  DESTINATION lib/${PROJECT_NAME}
+)
+
 
 ament_package()
