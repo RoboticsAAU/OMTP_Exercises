@@ -1,0 +1,3 @@
+setuptools==58.2.0
+black==21.12b0
+uvloop==0.17.0

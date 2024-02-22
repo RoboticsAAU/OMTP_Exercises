@@ -50,5 +50,6 @@
 				"ms-vscode.cmake-tools"
 			]
 		}
-	}
+	},
+	"postCreateCommand": "pip install -r ${containerWorkspaceFolder}/requirements.txt"
 }
