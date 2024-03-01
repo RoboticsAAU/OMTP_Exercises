@@ -1,5 +1,5 @@
 {
-    "editor.tabSize": 8,
+    "editor.tabSize": 4,
     "editor.rulers": [
         100
     ],
@@ -37,7 +37,6 @@
         "**/log": true
     },
     "cSpell.words": [
-        "RTPS",
         "athackst",
         "autopep",
         "cmake",
@@ -47,7 +46,9 @@
         "deque",
         "devcontainer",
         "ints",
+        "moveit",
         "noqa",
+        "omtp",
         "pytest",
         "rclcpp",
         "rclpy",
@@ -56,7 +57,9 @@
         "rosdistro",
         "rosidl",
         "RTPS",
+        "rviz",
         "uncrustify",
+        "URDF",
         "Wextra",
         "Wpedantic",
         "xmllint"

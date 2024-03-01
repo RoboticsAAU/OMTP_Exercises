@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>omtp_lecture2</name>
+  <version>0.0.0</version>
+  <description>The omtp_lecture2 package</description>
+
+  <maintainer email="sb@mp.aau.dk">Simon Bøgh</maintainer>
+  <license>TODO</license>
+
+
+  <!-- Declare package dependencies -->
+  <depend>rclcpp</depend>
+  <depend>std_msgs</depend>
+
+  <!-- Add Python dependencies if your package includes Python code -->
+  <exec_depend>ament_cmake</exec_depend>
+
+  <!-- Specify package export information -->
+  <export>
+    <!-- If your package contains Python code, include the following line -->
+    <build_type>ament_python</build_type>
+  </export>
+</package>

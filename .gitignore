@@ -5,3 +5,5 @@ site/*
 
 # Devcontainer sync
 .devcontainer/devcontainer.json
+
+tmp/*

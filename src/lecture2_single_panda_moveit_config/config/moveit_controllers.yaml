@@ -1,0 +1,28 @@
+# MoveIt uses this configuration for controller management
+
+moveit_controller_manager: moveit_simple_controller_manager/MoveItSimpleControllerManager
+
+moveit_simple_controller_manager:
+  controller_names:
+    - panda_arm_controller
+    - hand_controller
+
+  panda_arm_controller:
+    type: FollowJointTrajectory
+    action_ns: follow_joint_trajectory
+    default: true
+    joints:
+      - panda1_joint1
+      - panda1_joint2
+      - panda1_joint3
+      - panda1_joint4
+      - panda1_joint5
+      - panda1_joint6
+      - panda1_joint7
+  hand_controller:
+    type: FollowJointTrajectory
+    action_ns: follow_joint_trajectory
+    default: true
+    joints:
+      - panda1_finger_joint1
+      - panda1_finger_joint2

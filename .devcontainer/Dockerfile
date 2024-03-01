@@ -16,10 +16,11 @@ ENV DEBIAN_FRONTEND=noninteractive
 RUN apt update \
         && apt install -y --no-install-recommends \
         ~nros-humble-rqt* \
+        ros-humble-moveit* \
+        ros-humble-cv-bridge* \
         nvidia-container-toolkit \
         lshw \
-        #         #
-        #         # Clean up
+        # Clean up
         && sudo apt autoremove -y \
         && sudo apt clean -y \
         && rm -rf /var/lib/apt/lists/*
@@ -29,3 +30,6 @@ ENV DEBIAN_FRONTEND=dialog
 # Set up auto-source of workspace for ros user
 ARG WORKSPACE
 RUN echo "if [ -f ${WORKSPACE}/install/setup.bash ]; then source ${WORKSPACE}/install/setup.bash; fi" >> /home/ros/.bashrc
+
+# Set up auto-source of gazebo for ros user
+RUN echo "if [ -f /usr/share/gazebo/setup.sh ]; then source /usr/share/gazebo/setup.sh; fi" >> /home/ros/.bashrc
