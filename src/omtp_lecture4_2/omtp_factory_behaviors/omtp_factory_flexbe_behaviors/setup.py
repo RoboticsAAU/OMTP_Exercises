@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 from setuptools import setup
 
-package_name = 'flexbe_repo_flexbe_behaviors'
+package_name = 'omtp_factory_flexbe_behaviors'
 
 setup(
     name=package_name,
@@ -21,7 +21,7 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            'example_behavior_sm = flexbe_repo_flexbe_behaviors.example_behavior_sm',
+            'example_behavior_sm = omtp_factory_flexbe_behaviors.example_behavior_sm',
         ],
     },
 )

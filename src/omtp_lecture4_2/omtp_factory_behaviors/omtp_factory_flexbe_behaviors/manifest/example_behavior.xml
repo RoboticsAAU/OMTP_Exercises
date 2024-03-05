@@ -2,7 +2,7 @@
 
 <behavior name="Example Behavior">
 
-    <executable package_path="flexbe_repo_flexbe_behaviors.example_behavior_sm" class="ExampleBehaviorSM" />
+    <executable package_path="omtp_factory_flexbe_behaviors.example_behavior_sm" class="ExampleBehaviorSM" />
     <tagstring>demo</tagstring>
     <author>Philipp Schillinger</author>
     <date>Fri Aug 21 2015</date>

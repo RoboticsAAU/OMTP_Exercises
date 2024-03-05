@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.10)
-project(flexbe_repo_flexbe_behaviors)
+project(omtp_factory_flexbe_behaviors)
 
 find_package(ament_cmake REQUIRED)
 find_package(ament_cmake_python REQUIRED)

@@ -1,8 +1,8 @@
 <package>
-  <name>flexbe_repo_behaviors</name>
+  <name>omtp_factory_behaviors</name>
   <version>0.0.1</version>
   <description>
-    Meta-package for FlexBE enabled flexbe_repo
+    Meta-package for FlexBE enabled omtp_factory
   </description>
   <author email="todo@todo.com">TODO</author>
   <maintainer email="todo@todo.com">TODO</maintainer>
@@ -14,8 +14,8 @@
   <buildtool_depend>ament_cmake</buildtool_depend>
 
   <run_depend>flexbe_core</run_depend>
-  <run_depend>flexbe_repo_flexbe_behaviors</run_depend>
-  <run_depend>flexbe_repo_flexbe_states</run_depend>
+  <run_depend>omtp_factory_flexbe_behaviors</run_depend>
+  <run_depend>omtp_factory_flexbe_states</run_depend>
 
   <export>
     <build_type>ament_cmake</build_type>

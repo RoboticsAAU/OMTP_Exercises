@@ -1,4 +1,4 @@
-# Copyright 2023 Philipp Schillinger, Team ViGIR, Christopher Newport University
+# Copyright 2023 Christopher Newport University
 #
 # Redistribution and use in source and binary forms, with or without
 # modification, are permitted provided that the following conditions are met:
@@ -26,39 +26,37 @@
 # ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 # POSSIBILITY OF SUCH DAMAGE.
 
-"""flexbe_repo_flexbe_states testing."""
 
-from os.path import join
-
-from launch import LaunchDescription
-from launch.actions import DeclareLaunchArgument, IncludeLaunchDescription
-from launch.substitutions import LaunchConfiguration
-from launch.launch_description_sources import PythonLaunchDescriptionSource
-from ament_index_python.packages import get_package_share_directory
+"""Pytest testing for omtp_factory_flexbe_states."""
 
 
-def generate_launch_description():
-    """Flexbe_states testing."""
-    flexbe_testing_dir = get_package_share_directory('flexbe_testing')
-    flexbe_states_test_dir = get_package_share_directory('flexbe_repo_flexbe_states')
+from flexbe_testing.py_tester import PyTester
 
-    path = join(flexbe_states_test_dir, "tests")
+
+class TestFlexBEStates(PyTester):
+    """Pytest testing for omtp_factory_flexbe_states."""
+
+    # def __init__(self, *args, **kwargs):
+    #     """Initialize unit test."""
+    #     super().__init__(*args, **kwargs)
+
+    @classmethod
+    def setUpClass(cls):
+
+        PyTester._package = "omtp_factory_flexbe_states"
+        PyTester._tests_folder = "tests"
+
+        PyTester.setUpClass()  # Do this last after setting package and tests folder
 
     # The tests
-    testcases = ""
-    testcases += join(path, "example_state.test") + "\n"
-    testcases += join(path, "example_action_state.test") + "\n"
+    def test_example_state(self):
+        """Run FlexBE unit test given .test file."""
+        self.run_test("example_state")
 
-    return LaunchDescription([
-        DeclareLaunchArgument("pkg", default_value="flexbe_repo_flexbe_states"),
-        DeclareLaunchArgument("testcases", default_value=testcases),
-        DeclareLaunchArgument("compact_format", default_value='true'),
-        IncludeLaunchDescription(
-            PythonLaunchDescriptionSource(join(flexbe_testing_dir, "launch", "flexbe_testing.launch.py")),
-            launch_arguments={
-                'package': LaunchConfiguration("pkg"),
-                'compact_format': LaunchConfiguration("compact_format"),
-                'testcases': LaunchConfiguration("testcases"),
-            }.items()
-        )
-    ])
+    def test_example_action_state(self):
+        """
+        Run FlexBE unit test given .test file.
+
+        This test requires longer wait than normal
+        """
+        self.run_test("example_action_state", timeout_sec=2.0, max_cnt=5000)

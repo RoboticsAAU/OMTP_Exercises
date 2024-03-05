@@ -4,7 +4,7 @@ from glob import glob
 from setuptools import setup
 from setuptools import find_packages
 
-PACKAGE_NAME = 'flexbe_repo_flexbe_states'
+PACKAGE_NAME = 'omtp_factory_flexbe_states'
 
 setup(
     name=PACKAGE_NAME,
@@ -27,8 +27,8 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            'example_action_state = flexbe_repo_flexbe_states.example_action_state',
-            'example_state = flexbe_repo_flexbe_states.example_state',
+            'example_action_state = omtp_factory_flexbe_states.example_action_state',
+            'example_state = omtp_factory_flexbe_states.example_state',
         ],
     },
 )

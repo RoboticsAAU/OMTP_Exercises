@@ -1,4 +1,4 @@
-path: flexbe_repo_flexbe_states.example_state
+path: omtp_factory_flexbe_states.example_state
 class: ExampleState
 
 import_only: true
