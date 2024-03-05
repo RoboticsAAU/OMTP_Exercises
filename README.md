@@ -47,5 +47,3 @@ Positions are defined with the standard `geometry_msgs::msg::Pose`, that is, it 
 The pick and place algorithm is in the `omtp_lecture2_2/src/move_demo.cpp`. To run the pick and place with a box, use the `omtp_lecture2_2/launch/pick_and_place.launch` file. This launches the full gazebo simulation, the move demo node, and spawns a box in the environment.
 
 
-Test update. 
-
