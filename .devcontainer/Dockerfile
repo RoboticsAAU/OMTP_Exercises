@@ -20,6 +20,7 @@ RUN apt update \
         ros-humble-cv-bridge* \
         nvidia-container-toolkit \
         lshw \
+        ros-humble-flexbe-behavior-engine \
         # Clean up
         && sudo apt autoremove -y \
         && sudo apt clean -y \
