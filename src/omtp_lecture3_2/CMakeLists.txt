@@ -8,6 +8,7 @@ endif()
 # find dependencies
 find_package(ament_cmake REQUIRED)
 find_package(ariac_sensors REQUIRED)
+find_package(ariac_msgs REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(moveit_core REQUIRED)
 find_package(moveit_ros_planning_interface REQUIRED)
@@ -36,7 +37,7 @@ install(DIRECTORY
 )
 
 add_executable(logic_pick_and_place src/logic_pick_and_place.cpp)
-ament_target_dependencies(logic_pick_and_place rclcpp moveit_ros_planning_interface moveit_visual_tools)
+ament_target_dependencies(logic_pick_and_place rclcpp moveit_ros_planning_interface moveit_visual_tools ariac_msgs)
 
 
 install(TARGETS
@@ -44,5 +45,10 @@ install(TARGETS
   DESTINATION lib/${PROJECT_NAME}
 )
 
+# rosidl_get_typesupport_target(cpp_typesupport_target "ariac_msgs" rosidl_type_support_cpp)
+
+# target_link_libraries(logic_pick_and_place
+#   ${cpp_typesupport_target}
+# )
 
 ament_package()
