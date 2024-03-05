@@ -11,6 +11,38 @@
 #include <moveit/robot_state/robot_state.h>
 #include <tf2/LinearMath/Quaternion.h>
 #include <geometry_msgs/msg/pose.h>
+#include <ariac_msgs/msg/basic_logical_camera_image.hpp>
+
+class PickAndPlaceNode : public rclcpp::Node
+{
+
+
+public:
+  PickAndPlaceNode()
+  : Node("logic_pick_and_place")
+  {
+    // Subscribe to the logical camera topic
+    auto logical_camera_subscriber_ =
+      this->create_subscription<ariac_msgs::msg::BasicLogicalCameraImage>(
+      "/ariac/sensors/basic_logical_camera/image", 10,
+      std::bind(&PickAndPlaceNode::logicalCameraCallback, this, std::placeholders::_1));
+  }
+  geometry_msgs::msg::Pose * getBoxPose()
+  {
+    return &box_pose;
+  }
+
+private:
+  geometry_msgs::msg::Pose box_pose;
+  void logicalCameraCallback(const ariac_msgs::msg::BasicLogicalCameraImage::SharedPtr msg)
+  {
+    RCLCPP_INFO(this->get_logger(), "Received logical camera message");
+    box_pose = msg->part_poses[0];
+  }
+
+
+};
+
 
 int main(int argc, char ** argv)
 {
@@ -20,6 +52,11 @@ int main(int argc, char ** argv)
   rclcpp::Node::SharedPtr move_group_node = rclcpp::Node::make_shared(
     "logic_pick_and_place",
     options);
+
+
+  // Subscribe to logical camera positions of the box
+  PickAndPlaceNode pick_and_place_node;
+
 
   // Spin a single thread executor for the current state monitor to get information about the robots state.
   rclcpp::executors::SingleThreadedExecutor executor;
@@ -46,6 +83,13 @@ int main(int argc, char ** argv)
     move_group.getCurrentState()->getJointModelGroup(HAND_GROUP);
 
   while (rclcpp::ok()) {
+
+    // RCLCPP_INFO(
+    //   pick_and_place_node.get_logger(), "Box pose: x: %f, y: %f, z: %f",
+    //   pick_and_place_node.getBoxPose()->position.x, pick_and_place_node.getBoxPose()->position.y,
+    //   pick_and_place_node.getBoxPose()->position.z);
+
+
     // Set the gripper joint values
     std::vector<double> gripper_joints = {0.040, 0.040};
     bool success;
