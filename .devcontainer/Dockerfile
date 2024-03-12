@@ -27,6 +27,13 @@ RUN apt update \
         && rm -rf /var/lib/apt/lists/*
 ENV DEBIAN_FRONTEND=dialog
 
+# Install python
+RUN apt-get update && \
+        apt-get install -y software-properties-common && \
+        add-apt-repository -y ppa:deadsnakes/ppa && \
+        apt-get update && \
+        apt install -y python3.8 python3.8-venv\
+        && rm -rf /var/lib/apt/lists/*
 
 # Set up auto-source of workspace for ros user
 ARG WORKSPACE
