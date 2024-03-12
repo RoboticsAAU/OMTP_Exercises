@@ -6,4 +6,6 @@ site/*
 # Devcontainer sync
 .devcontainer/devcontainer.json
 
+omtp_lecture10/rl_env/*
+
 tmp/*
