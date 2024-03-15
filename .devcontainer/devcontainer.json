@@ -47,7 +47,8 @@
 				"zachflower.uncrustify",
 				"vsliveshare.vsliveshare",
 				"ms-python.python",
-				"ms-vscode.cmake-tools"
+				"ms-vscode.cmake-tools",
+				"ms-toolsai.tensorboard"
 			]
 		}
 	},
