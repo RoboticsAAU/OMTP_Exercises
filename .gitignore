@@ -7,5 +7,6 @@ site/*
 .devcontainer/devcontainer.json
 
 omtp_lecture10/rl_env/*
+omtp_lecture10/rl_panda_gym_pybullet_example/*
 
 tmp/*
